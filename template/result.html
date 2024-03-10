@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Safety Image Classifier - Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 50px;
+            font-size: 32px; /* Increased font size for the title */
+        }
+
+        p {
+            font-size: 24px; /* Increased font size */
+            margin-bottom: 20px; /* Increased margin */
+        }
+
+        .safe, .not-safe {
+            font-size: 80px; /* Increased icon size */
+            margin-top: 20px;
+        }
+
+        .safe {
+            color: #4CAF50;
+        }
+
+        .not-safe {
+            color: #D32F2F;
+        }
+
+        .icon {
+            font-size: 40px;
+        }
+
+        a {
+            display: block;
+            margin-top: 30px; /* Increased margin */
+            color: #1565C0;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px; /* Increased font size */
+        }
+
+        img {
+            max-width: 100%; /* Make sure the image doesn't exceed its container */
+            margin-top: 20px; /* Added margin for better spacing */
+        }
+    </style>
+</head>
+<body>
+    <h1>Child Safety Image Classifier - Result</h1>
+    <p>
+        {% if result.safety_status == "safe" %}
+            <span class="safe">&#128522;</span> <!-- Bigger smiley icon for safe -->
+            <span> Safe!</span> <!-- Added message for safe -->
+        {% else %}
+            <span class="not-safe">&#128545;</span> <!-- Bigger angry icon for not safe -->
+            <span> Not Safe!</span> <!-- Added message for not safe -->
+        {% endif %}
+    </p>
+    <p>Confidence: {{ result.confidence }}</p>
+    
+    {% if result.safety_status == "safe" %}
+        <img src="{{ result.image }}" alt="Uploaded Photo">
+    {% endif %}
+    
+    <a href="/">Back to Upload</a>
+</body>
+</html>

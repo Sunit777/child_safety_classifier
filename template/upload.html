@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Safety Image Classifier</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 50px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <img src="child_classifier_logo.png" alt="Child Classifier Logo" width="150">
+    <h1>Child Safety Image Classifier</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label for="image">Choose a Photo:</label>
+        <br>
+        <input type="file" name="image" accept="image/*" required>
+        <br>
+        <button type="submit">
+            <img src="predict_icon.png"  width="20" style="margin-right: 10px;">
+            Predict
+        </button>
+    </form>
+</body>
+</html>
